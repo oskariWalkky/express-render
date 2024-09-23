@@ -1,9 +1,10 @@
 const { Translate } = require("@google-cloud/translate").v2;
 const translate = new Translate({ projectId: process.env.CLOUD_TRANSLATION });
 
-const translateText = async (text, targetLanguage = 'fi') => {
-  const [translation] = await translate.translate(text, targetLanguage);
-  return translation;
+const translateText = async (text, targetLanguage = "fi") => {
+  //   const [translation] = await translate.translate(text, targetLanguage);
+  //   return translation; // TODO: enable if you want translation
+  return "not enabled";
 };
 
 const quickStart = async () => {
@@ -15,7 +16,7 @@ const quickStart = async () => {
 
   try {
     // Translates some text into Finnish
-    const [translation, apiResponse] = await translate.translate(text, target);
+    const [translation, apiResponse] = await translateText(text, target);
     // console.log("API full response:", apiResponse); // Log the entire response for debugging
     console.log(`Text: ${text}`);
     console.log(`Translation: ${translation}`);
