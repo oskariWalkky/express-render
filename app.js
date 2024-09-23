@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3001;
 
-const apiRoutes = require('./routes/api');  // API routes
-const homeRoutes = require('./routes/home'); // HTML route
+const apiRoutes = require('./src/routes/api');  // API routes
+const homeRoutes = require('./src/routes/home'); // HTML route
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
