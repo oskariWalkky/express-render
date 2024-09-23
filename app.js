@@ -1,10 +1,17 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+const test = process.env.TEST_ENV || "DID NOT LOAD";
 
-app.get("/", (req, res) => res.type('html').send(html));
+console.log(`env file is shows: ${test}`)
 
-const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.get("/", (req, res) => res.type("html").send(html));
+
+const server = app.listen(port, () =>
+  console.log(`Example app listening on port ${port}!`)
+);
 
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
@@ -54,8 +61,8 @@ const html = `
   </head>
   <body>
     <section>
-      Hello from Render and nodemon!
+      Hello from Render and nodemon! ${test}
     </section>
   </body>
 </html>
-`
+`;
